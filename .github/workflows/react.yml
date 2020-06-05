@@ -27,12 +27,11 @@ jobs:
         node version: 12
 
     # Runs a set of commands using the runners shell
-    - name: yarn install
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-          cmd: install
+    - name: action-yarn
+    - uses: comchangs/action-yarn@v0.1-beta
     - name : installing surge
     - run : npm install -g surge
+      
     - name : deploying on surge
     - run : surge ./build tayyabapp.surge.sh --token &{{secrets.SURGE_TOKENS}}
         
